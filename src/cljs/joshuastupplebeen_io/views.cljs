@@ -2,7 +2,7 @@
   (:require [re-frame.core :as re-frame]
             [re-com.core :as re-com]
             [joshuastupplebeen-io.subs :as subs]
-            ))
+            [joshuastupplebeen-io.events :as events]))
 
 (def test-text
 "round round. Beef ribs kielbasa biltong, drumstick picanha ball tip landjaeger beef filet mignon fatback cow bresaola ham bacon meatball. Kielbasa drumstick tenderloin tail, swine buffalo porchetta. Ground round turducken boudin pancetta. Andouille meatloaf pork belly venison, corned beef chuck drumstick alcatra spare ribs.
@@ -13,9 +13,10 @@ Kevin shank chicken landjaeger chuck capicola shoulder ham hock t-bone cow beef 
 )
 
 (defn title []
-  (let [name (re-frame/subscribe [::subs/name])]
+  (let [name (re-frame/subscribe [::subs/name])
+        page (re-frame/subscribe [::subs/page])]
     [re-com/title
-     :label (str "Hello from " @name)
+     :label (str "Hello from " @page)
      :level :level1]))
 
 (defn nav-menu2 []
@@ -28,7 +29,7 @@ Kevin shank chicken landjaeger chuck capicola shoulder ham hock t-bone cow beef 
    [re-com/hyperlink
     :style {:color "white"}
     :label "joshuastupplebeen.io"
-    :on-click #(re-frame/dispatch [:initialize-db])]
+    :on-click #(re-frame/dispatch [::events/initialize-db])] ;; not sure why events namespace is necessary
    [re-com/hyperlink
     :style {:color "white"
             :padding-left "40px"}
@@ -106,6 +107,7 @@ Kevin shank chicken landjaeger chuck capicola shoulder ham hock t-bone cow beef 
    :children ["weblog"]])
 
 (defn main-panel []
+  (let [page (re-frame/subscribe [::subs/name])]
   [re-com/v-box
    :height "100%"
-   :children [[nav-menu2] "main page"]])
+   :children [[nav-menu2] [title]]]))
