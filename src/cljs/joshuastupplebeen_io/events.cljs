@@ -21,3 +21,11 @@
  :nav-contact
  (fn [db _]
    (assoc db :page "contact")))
+
+(re-frame/reg-event-db
+ :expand-preview
+ (fn [db _] nil))
+
+(re-frame/reg-event-db
+ :shrink-preview
+ (fn [db _] nil))
