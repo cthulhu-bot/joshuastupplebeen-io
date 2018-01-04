@@ -15,10 +15,10 @@
 (defn home-card-header []
   (let [base-style {:padding-top "20px"
                     :padding-right "30px"}
-        greeting (case (rand-int 3)
+        greeting (case (rand-int 4)
                    0 "Howzit"
                    1 "Why hello there!"
-                   2 "Oy!"
+                   2 "Alo!"
                    3 "Greetings!")]
     (re-com/h-box
      :style {:background-color "rgb(239, 237, 237)"
