@@ -21,7 +21,8 @@ Kevin shank chicken landjaeger chuck capicola shoulder ham hock t-bone cow beef 
      :style {:background-color "rgb(239, 237, 237)"
              :padding-left "20px"
              :margin-top "0px"
-             :justify-content "space-between"}
+             :justify-content "space-between"
+             :font-family "PT Sans, Helvetica, Arial, sans-serif"}
      :children [[:h3 "1/3/2018"]
                 [re-com/hyperlink
                  :style amended-style
@@ -40,7 +41,9 @@ Kevin shank chicken landjaeger chuck capicola shoulder ham hock t-bone cow beef 
                          :padding-left "30px"
                          :padding-right "30px"
                          :padding-bottom "30px"
-                         :float "right"}
+                         :float "right"
+                         :font-family "PT Serif, Helvetica, Arial, sans-serif"
+                         :font-size "18px"}
                  :children [[components/paragraph text]
                             [re-com/hyperlink
                              :style more-style

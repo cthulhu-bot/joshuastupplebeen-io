@@ -18,14 +18,16 @@
         greeting (case (rand-int 4)
                    0 "Howzit"
                    1 "Why hello there!"
-                   2 "Alo!"
+                   2 "Hey there!"
                    3 "Greetings!")]
     (re-com/h-box
      :style {:background-color "rgb(239, 237, 237)"
              :padding-left "20px"
              :margin-top "0px"
-             :justify-content "space-between"}
-     :children [[:h3 greeting]])))
+             :justify-content "space-between"
+             :font-family "PT Sans, Helvetica, Arial, sans-serif"
+             :font-size "18px"}
+     :children [[:h2 greeting]])))
 
 (defn post-body [text]
   (re-com/h-box
@@ -36,7 +38,8 @@
                          :padding-left "30px"
                          :padding-right "30px"
                          :padding-bottom "30px"
-                         :float "right"}
+                         :float "right"
+                         :font-family "PT Serif, Helvetica, Arial, sans-serif"}
                  :children [[components/paragraph text]]]]))
 
 (defn home-card []

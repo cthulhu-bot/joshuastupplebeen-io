@@ -12,7 +12,8 @@
    :style {:background-color "#3c5b7f"
                  :height "72px"
                  :padding "20px"
-           :font-size "170%"}
+           :font-size "170%"
+           :font-family "PT Sans, Helvetica, Arial, sans-serif"}
    :children [[re-com/hyperlink
                :style {:color "white"}
                :label "joshuastupplebeen.io"
