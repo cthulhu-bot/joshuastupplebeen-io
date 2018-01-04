@@ -11,9 +11,6 @@ Ribeye pork loin frankfurter sausage turducken hamburger. Pancetta strip steak v
 Kevin shank chicken landjaeger chuck capicola shoulder ham hock t-bone cow beef ribs. Hamburger spare ribs swine pork loin ribeye sausage tenderloin. Cupim turkey hamburger beef tenderloin meatball ribeye chuck kielbasa strip steak fatback. T-bone prosciutto tri-tip, sausage ham hock shoulder drumstick leberkas pork loin hamburger short ribs cupim ground round rump corned beef. Tri-tip tongue drumstick kielbasa boudin ball tip porchetta salami bresaola ham ham hock meatball."
   )
 
-(defn preview-text [text]
-  (re-com/p text))
-
 (defn post-header [preview?]
   (let [base-style {:padding-top "20px"
                     :padding-right "30px"}
@@ -44,7 +41,7 @@ Kevin shank chicken landjaeger chuck capicola shoulder ham hock t-bone cow beef 
                          :padding-right "30px"
                          :padding-bottom "30px"
                          :float "right"}
-                 :children [[preview-text text]
+                 :children [[components/paragraph text]
                             [re-com/hyperlink
                              :style more-style
                              :label "More ..."

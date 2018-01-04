@@ -4,10 +4,9 @@
 
 (defn card [card-content]
   [re-com/v-box
-    :style {:border "1px solid"
-            :border-color "rgb(239, 237, 237)"
-            :padding-bottom "20px"
-            :margin-bottom "50px"}
+   :style {:border "1px solid"
+           :border-color "rgb(239, 237, 237)"
+           :padding-bottom "20px"}
    :children card-content])
 
 (defn avatar
@@ -20,3 +19,6 @@
                   :position "relative"}
           :width "100px"
           :height "100px"}]))
+
+(defn paragraph [text]
+  (re-com/p text))

@@ -48,6 +48,7 @@
    :style {:padding-left "10%"
            :padding-top "20px"}
    :width "70%"
+   :gap "50px"
    :children [[home/home-card]
               [weblog/post-card-01]]])
 
