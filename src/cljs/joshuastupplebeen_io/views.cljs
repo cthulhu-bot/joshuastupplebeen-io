@@ -5,7 +5,9 @@
             [joshuastupplebeen-io.events :as events]
             [joshuastupplebeen-io.weblog :as weblog]
             [joshuastupplebeen-io.components :as components]
-            [joshuastupplebeen-io.home :as home]))
+            [joshuastupplebeen-io.home :as home]
+            [joshuastupplebeen-io.portfolio :as portfolio]
+            [joshuastupplebeen-io.contact :as contact]))
 
 (defn nav-menu []
   [re-com/h-box
@@ -35,14 +37,20 @@
                :on-click #(re-frame/dispatch [:nav-contact])]]])
 
 (defn portfolio []
-  (re-com/title
-   :label "Portfolio Page"
-   :level :level1))
+  [re-com/v-box
+   :style {:padding-left "10%"
+           :padding-top "20px"}
+   :width "70%"
+   :gap "50px"
+   :children [[portfolio/pcard-01]]])
 
 (defn contact []
-  (re-com/title
-   :label "Contact Page"
-   :level :level1))
+  [re-com/v-box
+   :style {:padding-left "10%"
+           :padding-top "20px"}
+   :width "70%"
+   :gap "50px"
+   :children [[contact/ccard01]]])
 
 (defn home []
   [re-com/v-box

@@ -3,11 +3,11 @@
             [re-frame.core :as re-frame]))
 
 (defn card [card-content]
-  [re-com/v-box
-   :style {:border "1px solid"
-           :border-color "rgb(239, 237, 237)"
-           :padding-bottom "20px"}
-   :children card-content])
+  [re-com/border
+   :border "1px solid rgb(239, 237, 237)"
+   :child [re-com/v-box
+           :style {:padding-bottom "20px"}
+           :children card-content]])
 
 (defn avatar
   ([]
@@ -19,6 +19,10 @@
                   :position "relative"}
           :width "100px"
           :height "100px"}]))
+
+(defn icon-link []
+  [re-com/md-circle-icon-button
+   :md-icon-name "zmdi-github-alt"])
 
 (defn paragraph [text]
   (re-com/p text))

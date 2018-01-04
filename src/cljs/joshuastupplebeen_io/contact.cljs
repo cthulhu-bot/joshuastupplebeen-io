@@ -1,23 +1,12 @@
-(ns joshuastupplebeen-io.home
+(ns joshuastupplebeen-io.contact
   (:require [re-com.core :as re-com]
             [re-frame.core :as re-frame]
             [joshuastupplebeen-io.components :as components]))
 
-(def text
-  "My name is Josh! I'm a husband, father and programmer.
-   I enjoy coding, cooking, video and board games, baking
-   and spending time with my family.
-   I also enjoy dabbling in cryptocurrencies, designing realtime systems,
-   breaking things and putting them back together again.
-   These days you can typically find me coding in a combination of clojure,
-   clojurescript and javascript.")
+(def text01
+  "joshua [dot] stupplebeen at [gmail]")
 
-(defn home-card-header []
-  (let [greeting (case (rand-int 4)
-                   0 "Howzit"
-                   1 "Why hello there!"
-                   2 "Hey there!"
-                   3 "Greetings!")]
+(defn header01 []
     (re-com/h-box
      :style {:background-color "rgb(239, 237, 237)"
              :padding-left "20px"
@@ -25,9 +14,9 @@
              :justify-content "space-between"
              :font-family "PT Sans, Helvetica, Arial, sans-serif"
              :font-size "18px"}
-     :children [[:h2 greeting]])))
+     :children [[:h2 "Feel free"]]))
 
-(defn post-body [text]
+(defn body01 [text]
   (re-com/h-box
      :width "100%"
      :children [[components/avatar]
@@ -41,6 +30,6 @@
                          :font-family "PT Serif, Helvetica, Arial, sans-serif"}
                  :children [[components/paragraph text]]]]))
 
-(defn home-card []
-  (components/card [[home-card-header]
-                    [post-body text]]))
+(defn ccard01 []
+  (components/card [[header01]
+                    [body01 text01]]))
