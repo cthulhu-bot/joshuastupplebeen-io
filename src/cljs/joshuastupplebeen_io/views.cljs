@@ -3,7 +3,9 @@
             [re-com.core :as re-com]
             [joshuastupplebeen-io.subs :as subs]
             [joshuastupplebeen-io.events :as events]
-            [joshuastupplebeen-io.weblog :as weblog]))
+            [joshuastupplebeen-io.weblog :as weblog]
+            [joshuastupplebeen-io.components :as components]
+            [joshuastupplebeen-io.home :as home]))
 
 (defn nav-menu []
   [re-com/h-box
@@ -42,16 +44,19 @@
    :level :level1))
 
 (defn home []
-  (re-com/title
-   :label "Home Page"
-   :level :level1))
+  [re-com/v-box
+   :style {:padding-left "10%"
+           :padding-top "20px"}
+   :width "70%"
+   :children [[home/home-card]
+              [weblog/post-card-01]]])
 
 (defn weblog []
   [re-com/v-box
    :style {:padding-left "10%"
            :padding-top "20px"}
-   :width "80%"
-   :children [[weblog/post-card]]])
+   :width "70%"
+   :children [[weblog/post-card-01]]])
 
 (defn main-panel []
   (let [page (re-frame/subscribe [::subs/page])

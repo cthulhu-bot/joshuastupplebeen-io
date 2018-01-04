@@ -1,6 +1,7 @@
 (ns joshuastupplebeen-io.weblog
   (:require [re-com.core :as re-com]
-            [re-frame.core :as re-frame]))
+            [re-frame.core :as re-frame]
+            [joshuastupplebeen-io.components :as components]))
 
 (def test-text
 "round round. Beef ribs kielbasa biltong, drumstick picanha ball tip landjaeger beef filet mignon fatback cow bresaola ham bacon meatball. Kielbasa drumstick tenderloin tail, swine buffalo porchetta. Ground round turducken boudin pancetta. Andouille meatloaf pork belly venison, corned beef chuck drumstick alcatra spare ribs.
@@ -9,17 +10,6 @@ Ribeye pork loin frankfurter sausage turducken hamburger. Pancetta strip steak v
 
 Kevin shank chicken landjaeger chuck capicola shoulder ham hock t-bone cow beef ribs. Hamburger spare ribs swine pork loin ribeye sausage tenderloin. Cupim turkey hamburger beef tenderloin meatball ribeye chuck kielbasa strip steak fatback. T-bone prosciutto tri-tip, sausage ham hock shoulder drumstick leberkas pork loin hamburger short ribs cupim ground round rump corned beef. Tri-tip tongue drumstick kielbasa boudin ball tip porchetta salami bresaola ham ham hock meatball."
   )
-
-(defn avatar
-  ([]
-   (avatar "https://lh3.googleusercontent.com/-aGjZkC1lEDo/AAAAAAAAAAI/AAAAAAAABUk/w1lSzJbX1_Q/s640/photo.jpg"))
-  ([img-url]
-   [:img {:src img-url
-          :style {:border-radius "50%"
-                  :padding "10px"
-                  :position "relative"}
-          :width "100px"
-          :height "100px"}]))
 
 (defn preview-text [text]
   (re-com/p text))
@@ -47,7 +37,7 @@ Kevin shank chicken landjaeger chuck capicola shoulder ham hock t-bone cow beef 
                      {:visibility "hidden"})]
     (re-com/h-box
      :width "100%"
-     :children [[avatar]
+     :children [[components/avatar]
                 [re-com/v-box
                  :style {:padding-top "20px"
                          :padding-left "30px"
@@ -61,10 +51,13 @@ Kevin shank chicken landjaeger chuck capicola shoulder ham hock t-bone cow beef 
                              :on-click #(re-frame/dispatch [:expand-preview])]]]])))
 
 (defn post-card
-  ([] (post-card test-text true))
-  ([preview-content preview?]
-   [re-com/v-box
-    :style {:border "1px solid"
-             :border-color "rgb(239, 237, 237)"}
-    :children [[post-header preview?]
-               [post-body preview-content preview?]]]))
+  ([card-content] (post-card card-content true))
+  ([card-content preview?]
+   (components/card card-content)))
+
+(defn post-card-01 []
+  (post-card [[post-header true]
+              [post-body test-text true]]))
+
+(defn post-cards
+  [post-card-01])
