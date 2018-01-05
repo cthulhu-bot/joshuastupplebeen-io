@@ -4,7 +4,7 @@
             [joshuastupplebeen-io.components :as components]))
 
 (def text01
-  "Random object generator")
+  "Random object generator for generative testing in javascript")
 
 (defn header01 []
     (re-com/h-box
@@ -14,22 +14,32 @@
              :justify-content "space-between"
              :font-family "PT Sans, Helvetica, Arial, sans-serif"
              :font-size "18px"}
-     :children [[:h2 "Random object generator"]]))
+     :children [[:h2 "Projects"]]))
 
-(defn body01 [text]
+(defn project [url description]
   (re-com/h-box
-     :width "100%"
-     :children [[components/avatar]
-                [re-com/v-box
-                 :style {:padding-top "20px"
-                         :padding-left "30px"
-                         :padding-right "30px"
-                         :padding-bottom "30px"
-                         :float "right"
-                         :font-size "18px"
-                         :font-family "PT Serif, Helvetica, Arial, sans-serif"}
-                 :children [[components/paragraph text]]]]))
+    :children [[components/icon-link]
+               [re-com/v-box
+                :style {:padding-top "20px"
+                        :padding-left "30px"
+                        :padding-right "30px"
+                        :padding-bottom "30px"
+                        :float "right"
+                        :font-size "18px"
+                        :font-family "PT Serif, Helvetica, Arial, sans-serif"}
+                :children [[components/paragraph description]]]]))
+
+(defn project01 []
+  (project nil text01))
+
+(defn project02 []
+  (project nil text01))
+
+(defn projects []
+  (re-com/v-box
+   :children [[project01]
+              [project02]]))
 
 (defn pcard-01 []
   (components/card [[header01]
-                    [body01 text01]]))
+                    [projects]]))

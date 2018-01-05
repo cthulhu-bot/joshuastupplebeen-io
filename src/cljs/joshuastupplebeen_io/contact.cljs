@@ -14,7 +14,7 @@
              :justify-content "space-between"
              :font-family "PT Sans, Helvetica, Arial, sans-serif"
              :font-size "18px"}
-     :children [[:h2 "Feel free"]]))
+     :children [[:h2 "Ping!"]]))
 
 (defn body01 [text]
   (re-com/h-box
