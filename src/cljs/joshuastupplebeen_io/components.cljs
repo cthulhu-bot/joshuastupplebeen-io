@@ -26,5 +26,17 @@
    :style {:margin-left "15px"
            :margin-top  "20px"}])
 
+(defn icons []
+  [re-com/h-box
+   :width "55%"
+   :justify :end
+   :gap "20px"
+   :children [[re-com/md-circle-icon-button
+               :md-icon-name "zmdi-github-alt"
+               :style {:margin-left "15px"}]
+              [re-com/md-circle-icon-button
+               :md-icon-name "zmdi-github-alt"
+               :style {:margin-left "15px"}]]])
+
 (defn paragraph [text]
   (re-com/p text))

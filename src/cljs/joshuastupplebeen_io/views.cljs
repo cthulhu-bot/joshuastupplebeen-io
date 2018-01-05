@@ -12,8 +12,8 @@
 (defn nav-menu []
   [re-com/h-box
    :style {:background-color "#3c5b7f"
-                 :height "72px"
-                 :padding "20px"
+           :height "72px"
+           :padding "20px"
            :font-size "170%"
            :font-family "PT Sans, Helvetica, Arial, sans-serif"}
    :children [[re-com/hyperlink
@@ -34,7 +34,8 @@
                :style {:color "white"
                        :padding-left "40px"}
                :label "Contact"
-               :on-click #(re-frame/dispatch [:nav-contact])]]])
+               :on-click #(re-frame/dispatch [:nav-contact])]
+              [components/icons]]])
 
 (defn portfolio []
   [re-com/v-box
