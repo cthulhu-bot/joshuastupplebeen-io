@@ -7,7 +7,24 @@
             [joshuastupplebeen-io.components :as components]
             [joshuastupplebeen-io.home :as home]
             [joshuastupplebeen-io.portfolio :as portfolio]
-            [joshuastupplebeen-io.contact :as contact]))
+            [joshuastupplebeen-io.contact :as contact]
+            [joshuastupplebeen-io.utils :as utils]))
+
+(defn icons []
+  [re-com/h-box
+   :width "55%"
+   :justify :end
+   :gap "20px"
+   :children [[re-com/md-circle-icon-button
+               :md-icon-name "zmdi-github"
+               :style {:margin-left "15px"
+                       :background-color "white"}
+               :on-click (fn [_] (utils/redirect! "https://github.com/cthulhu-bot"))]
+              [re-com/md-circle-icon-button
+               :md-icon-name "zmdi-twitter"
+               :style {:margin-left "15px"
+                       :background-color "white"}
+               :on-click (fn [_] (utils/redirect! "https://twitter.com/joshstupplebeen"))]]])
 
 (defn nav-menu []
   [re-com/h-box
@@ -35,7 +52,7 @@
                        :padding-left "40px"}
                :label "Contact"
                :on-click #(re-frame/dispatch [:nav-contact])]
-              [components/icons]]])
+              [icons]]])
 
 (defn portfolio []
   [re-com/v-box

@@ -1,6 +1,7 @@
 (ns joshuastupplebeen-io.components
   (:require [re-com.core :as re-com]
-            [re-frame.core :as re-frame]))
+            [re-frame.core :as re-frame]
+            [joshuastupplebeen-io.utils :as utils]))
 
 (defn card [card-content]
   [re-com/border
@@ -20,23 +21,12 @@
           :width "100px"
           :height "100px"}]))
 
-(defn icon-link []
+(defn icon-link [url]
   [re-com/md-circle-icon-button
-   :md-icon-name "zmdi-github-alt"
+   :md-icon-name "zmdi-github"
    :style {:margin-left "15px"
-           :margin-top  "20px"}])
-
-(defn icons []
-  [re-com/h-box
-   :width "55%"
-   :justify :end
-   :gap "20px"
-   :children [[re-com/md-circle-icon-button
-               :md-icon-name "zmdi-github-alt"
-               :style {:margin-left "15px"}]
-              [re-com/md-circle-icon-button
-               :md-icon-name "zmdi-github-alt"
-               :style {:margin-left "15px"}]]])
+           :margin-top  "20px"}
+   :on-click (fn [_] (utils/redirect! url))])
 
 (defn paragraph [text]
   (re-com/p text))

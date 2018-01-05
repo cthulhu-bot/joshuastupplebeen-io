@@ -24,7 +24,7 @@
 
 (defn project [url description]
   (re-com/h-box
-    :children [[components/icon-link]
+    :children [[components/icon-link url]
                [re-com/v-box
                 :style {:padding-top "20px"
                         :padding-left "30px"
@@ -36,13 +36,13 @@
                 :children [[components/paragraph description]]]]))
 
 (defn random-object []
-  (project nil random-object-description))
+  (project "https://github.com/cthulhu-bot/random-object" random-object-description))
 
 (defn jscheme []
-  (project nil jscheme-description))
+  (project "https://github.com/cthulhu-bot/jscheme" jscheme-description))
 
 (defn hipchat-bot []
-  (project nil hipchat-bot-description))
+  (project "https://github.com/cthulhu-bot/CCX-HipChat-Bot" hipchat-bot-description))
 
 (defn projects []
   (re-com/v-box
