@@ -23,7 +23,8 @@
 (defn icon-link []
   [re-com/md-circle-icon-button
    :md-icon-name "zmdi-github-alt"
-   :style {:margin "15px"}])
+   :style {:margin-left "15px"
+           :margin-top  "20px"}])
 
 (defn paragraph [text]
   (re-com/p text))

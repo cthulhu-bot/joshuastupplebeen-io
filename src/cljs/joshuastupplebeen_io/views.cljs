@@ -42,7 +42,7 @@
            :padding-top "20px"}
    :width "70%"
    :gap "50px"
-   :children [[portfolio/pcard-01]]])
+   :children [[portfolio/projects-card]]])
 
 (defn contact []
   [re-com/v-box
@@ -78,5 +78,6 @@
                         [home])]
     [re-com/v-box
      :height "100%"
+     :style {:margin-bottom "50px"}
      :children [[nav-menu]
                 rendered-page]]))

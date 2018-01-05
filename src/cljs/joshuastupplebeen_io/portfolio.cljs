@@ -3,8 +3,14 @@
             [re-frame.core :as re-frame]
             [joshuastupplebeen-io.components :as components]))
 
-(def text01
+(def random-object-description
   "Random object generator for generative testing in javascript")
+
+(def jscheme-description
+  "lisp that compiles to javascript")
+
+(def hipchat-bot-description
+  "hipchat bot for one of my old teams")
 
 (defn header01 []
     (re-com/h-box
@@ -29,17 +35,21 @@
                         :font-family "PT Serif, Helvetica, Arial, sans-serif"}
                 :children [[components/paragraph description]]]]))
 
-(defn project01 []
-  (project nil text01))
+(defn random-object []
+  (project nil random-object-description))
 
-(defn project02 []
-  (project nil text01))
+(defn jscheme []
+  (project nil jscheme-description))
+
+(defn hipchat-bot []
+  (project nil hipchat-bot-description))
 
 (defn projects []
   (re-com/v-box
-   :children [[project01]
-              [project02]]))
+   :children [[random-object]
+              [jscheme]
+              [hipchat-bot]]))
 
-(defn pcard-01 []
+(defn projects-card []
   (components/card [[header01]
                     [projects]]))

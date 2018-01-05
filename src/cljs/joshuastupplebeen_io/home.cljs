@@ -7,10 +7,10 @@
   "My name is Josh! I'm a husband, father and programmer.
    I enjoy coding, cooking, video and board games, baking
    and spending time with my family.
-   I also enjoy dabbling in cryptocurrencies, designing realtime systems,
+   I also enjoy dabbling in cryptocurrencies, designing realtime systems, programming languages,
    breaking things and putting them back together again.
    These days you can typically find me coding in a combination of clojure,
-   clojurescript and javascript.")
+   clojurescript and javascript. Especially this webpage, which was coded using clojurescript, reframe and recom.")
 
 (defn home-card-header []
   (let [greeting (case (rand-int 4)
