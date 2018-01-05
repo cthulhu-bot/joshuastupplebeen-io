@@ -3,6 +3,12 @@
             [re-frame.core :as re-frame]
             [joshuastupplebeen-io.components :as components]))
 
+(def website-description
+  "this website coded from scratch in clojurescript, re-frame and re-com")
+
+(def devcards-description
+  "devcards for this website")
+
 (def random-object-description
   "Random object generator for generative testing in javascript")
 
@@ -35,6 +41,12 @@
                         :font-family "PT Serif, Helvetica, Arial, sans-serif"}
                 :children [[components/paragraph description]]]]))
 
+(defn website []
+  (project "https://github.com/cthulhu-bot/joshuastupplebeen-io" website-description))
+
+(defn website-devcards []
+  (project "https://github.com/cthulhu-bot/joshuastupplebeen.io.devcards" devcards-description))
+
 (defn random-object []
   (project "https://github.com/cthulhu-bot/random-object" random-object-description))
 
@@ -46,7 +58,9 @@
 
 (defn projects []
   (re-com/v-box
-   :children [[random-object]
+   :children [[website]
+              [website-devcards]
+              [random-object]
               [jscheme]
               [hipchat-bot]]))
 
