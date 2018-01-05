@@ -1,1 +1,1 @@
-[](http://joshuastupplebeen.io)
+[joshuastupplebeen.io](http://joshuastupplebeen.io)
