@@ -23,8 +23,12 @@
    (assoc db :page "contact")))
 
 (re-frame/reg-event-db
- :expand-preview
- (fn [db _] nil))
+ :update-cards
+ (fn [db _]))
+
+(re-frame/reg-event-db
+ :expand-card
+ (fn [db card-name] nil))
 
 (re-frame/reg-event-db
  :shrink-preview

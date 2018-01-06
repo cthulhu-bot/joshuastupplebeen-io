@@ -10,3 +10,8 @@
  ::page
  (fn [db]
    (:page db)))
+
+(re-frame/reg-sub
+ ::post01
+ (fn [db]
+   (:post01-preview db)))

@@ -1,12 +1,9 @@
 (ns joshuastupplebeen-io.weblog
   (:require [re-com.core :as re-com]
             [re-frame.core :as re-frame]
-            [joshuastupplebeen-io.components :as components]))
-
-(def test-text
-  "Finally upgraded this site to something cool, slick and infinitely more 
-fun to program. Namely swapped out straight up ES6, react and redux, for clojurescript, 
-reframe and recom (which include javascript and react under the hood, I know).")
+            [joshuastupplebeen-io.components :as components]
+            [joshuastupplebeen-io.posts :as posts]
+            [clojure.string :as str]))
 
 (defn post-header [preview?]
   (let [base-style {:padding-top "20px"
@@ -26,10 +23,13 @@ reframe and recom (which include javascript and react under the hood, I know).")
                  :label "Less ..."
                  :on-click #(re-frame/dispatch [:shrink-preview])]])))
 
-(defn post-body [text preview?]
+(defn post-body [text preview? expandfn]
   (let [more-style (if preview?
                      {}
-                     {:visibility "hidden"})]
+                     {:visibility "hidden"})
+        card-text (if preview?
+                    (str/join " " (take 40 (str/split text #" ")))
+                    text)]
     (re-com/h-box
      :width "100%"
      :children [[components/avatar]
@@ -41,11 +41,11 @@ reframe and recom (which include javascript and react under the hood, I know).")
                          :float "right"
                          :font-family "PT Serif, Helvetica, Arial, sans-serif"
                          :font-size "18px"}
-                 :children [[components/paragraph text]
+                 :children [[components/paragraph card-text]
                             [re-com/hyperlink
                              :style more-style
                              :label "More ..."
-                             :on-click #(re-frame/dispatch [:expand-preview])]]]])))
+                             :on-click #(re-frame/dispatch [:expand-card card-name])]]]])))
 
 (defn post-card
   ([card-content] (post-card card-content true))
@@ -53,8 +53,10 @@ reframe and recom (which include javascript and react under the hood, I know).")
    (components/card card-content)))
 
 (defn post-card-01 []
-  (post-card [[post-header true]
-              [post-body test-text true]]))
+  (let [preview? (re-frame/subscribe [::post01])
+        expandfn #(re-frame/dispatch [:expand-preview])]
+    (post-card [[post-header true]
+                [post-body posts/post01 true expandfn]])))
 
 (defn post-cards
   [post-card-01])
