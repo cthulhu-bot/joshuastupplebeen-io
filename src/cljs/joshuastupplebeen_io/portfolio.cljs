@@ -30,7 +30,8 @@
 
 (defn project [url description]
   (re-com/h-box
-    :children [[re-com/v-box
+    :children [[components/icon-link url]
+               [re-com/v-box
                 :style {:padding-top "20px"
                         :padding-left "30px"
                         :padding-right "30px"
@@ -38,9 +39,7 @@
                         :float "right"
                         :font-size "18px"
                         :font-family "PT Serif, Helvetica, Arial, sans-serif"}
-                :children [[re-com/hyperlink-href
-                            :label description
-                            :href url]]]]))
+                :children [[components/paragraph description]]]]))
 
 (defn website []
   (project "https://github.com/cthulhu-bot/joshuastupplebeen-io" website-description))
