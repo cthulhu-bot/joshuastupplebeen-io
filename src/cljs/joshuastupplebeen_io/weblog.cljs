@@ -58,5 +58,12 @@
     (post-card [[post-header true]
                 [post-body posts/post01 true expandfn]])))
 
+(defn post-card-02 []
+  (let [preview? (re-frame/subscribe [::post02])
+        expandfn #(re-frame/dispatch [:expand-preview])]
+    (post-card [[post-header true]
+                [post-body posts/post02 true expandfn]])))
+
 (defn post-cards
-  [post-card-01])
+  [post-card-01
+   post-card-02])
